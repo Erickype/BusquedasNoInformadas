@@ -11,7 +11,6 @@ namespace BusquedasNoInformadas
         public Nodo nodoRaiz { get; set; }
         public Arbol arbol;
         Queue<Nodo> nodosFrontera = new(); //Nodos por visitar
-        //Stack<Nodo> nodosFrontera = new(); //Nodos por visitar
         List<Nodo> nodosVisitados = new();
 
         public BusquedaAnchura(Isla islaIzquierda, Isla islaDerecha)
@@ -26,21 +25,12 @@ namespace BusquedasNoInformadas
 
             nodoActual = nodoRaiz;
             nodosFrontera.Enqueue(nodoActual);
-            //nodosFrontera.Push(nodoActual);
 
             while (nodosFrontera.Count > 0 && !esSolucion(nodoActual))
             {
                 nodoActual = nodosFrontera.Dequeue();
-                //nodoActual = nodosFrontera.Pop();
 
                 nodosVisitados.Add(nodoActual);
-                //if (nodosVisitados.Count == 10000)
-                //{
-                //    Console.WriteLine("NODO 10000");
-                //    return nodoActual;
-                //}                    
-
-                //Console.WriteLine(nodoActual.imprimirNodo());
 
                 nodoActual.generarHijos();
 
@@ -48,7 +38,6 @@ namespace BusquedasNoInformadas
             } 
 
             return nodoActual;
-            //return arbol;
         }
 
         private void encolarHijos(Nodo nodoActual)
@@ -64,7 +53,6 @@ namespace BusquedasNoInformadas
                         if(queNoSeRepitaNodo(item))
                         {
                             nodosFrontera.Enqueue(item);
-                            //nodosFrontera.Push(item);
                         }
                         else
                         {
@@ -171,12 +159,6 @@ namespace BusquedasNoInformadas
                 }
 
             }
-
-            //if (nodosFrontera.Contains(nodo))
-            //     respuesta = false;
-
-            //if (nodosVisitados.Contains(nodo))
-            //     respuesta = false;
 
             return respuesta;
         }

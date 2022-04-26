@@ -11,7 +11,7 @@ namespace BusquedasNoInformadas
         public Isla islaIzquierda { get; set; }
         public Isla islaDerecha { get; set; }
         public bool esViajeEsteril { get; set; }
-        public bool seDesembarco { get; set; } // true= izquierda a derecha, false = derecha a izquierda
+        public bool seDesembarco { get; set; }
 
         public Viaje(Isla islaIzquierda, Isla islaDerecha, bool seDesembarco)
         {
