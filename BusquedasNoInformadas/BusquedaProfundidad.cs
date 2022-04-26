@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace BusquedasNoInformadas
 {
-    internal class BusquedaAnchura
+    internal class BusquedaProfundidad
     {
         public Nodo nodoRaiz { get; set; }
         public Arbol arbol;
-        Queue<Nodo> nodosFrontera = new(); //Nodos por visitar
+        Stack<Nodo> nodosFrontera = new(); //Nodos por visitar
         List<Nodo> nodosVisitados = new();
 
-        public BusquedaAnchura(Isla islaIzquierda, Isla islaDerecha)
+        public BusquedaProfundidad(Isla islaIzquierda, Isla islaDerecha)
         {      
             nodoRaiz = new(new Viaje(islaIzquierda, islaDerecha, true));
             arbol = new Arbol(nodoRaiz);
         }
 
-        public Nodo busquedaAnchura()
+        public Nodo busquedaProfundidad()
         {
             Nodo nodoActual;            
 
             nodoActual = nodoRaiz;
-            nodosFrontera.Enqueue(nodoActual);
+            nodosFrontera.Push(nodoActual);
 
             while (nodosFrontera.Count > 0 && !esSolucion(nodoActual))
             {
-                nodoActual = nodosFrontera.Dequeue();
+                nodoActual = nodosFrontera.Pop();
 
                 nodosVisitados.Add(nodoActual);
 
@@ -52,7 +52,7 @@ namespace BusquedasNoInformadas
                     {
                         if(queNoSeRepitaNodo(item))
                         {
-                            nodosFrontera.Enqueue(item);
+                            nodosFrontera.Push(item);
                         }
                         else
                         {

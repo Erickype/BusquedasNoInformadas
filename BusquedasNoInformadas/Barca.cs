@@ -12,8 +12,8 @@ namespace BusquedasNoInformadas
         public byte canibales{ get; set; }
         public Barca(byte misioneros, byte canibales)
         {
-            misioneros = 0;
-            canibales = 0;
+            this.misioneros = misioneros;
+            this.canibales = canibales;
         }
     }
 }
