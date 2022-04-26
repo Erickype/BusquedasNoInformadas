@@ -9,4 +9,9 @@ BusquedaAnchura busquedaAnchura = new(new Isla(3, 3, true), new Isla(0, 0, false
 //Arbol arbol = busquedaAnchura.busquedaAnchura();
 Nodo nodoSolucion = busquedaAnchura.busquedaAnchura();
 
-nodoSolucion.imprimirArbol();
+//Console.WriteLine(nodoSolucion.imprimirNodo());
+int pasos = nodoSolucion.imprimirArbol();
+
+Console.WriteLine("\nSolución en "+pasos+" pasos.")
+
+

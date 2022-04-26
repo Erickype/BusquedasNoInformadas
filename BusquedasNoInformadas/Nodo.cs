@@ -120,14 +120,15 @@ namespace BusquedasNoInformadas
             return result;
         }
 
-        public void imprimirArbol()
+        public int imprimirArbol()
         {
             List<string> nodosS = new();
-            Nodo aux = this;
+            Nodo aux = (Nodo)MemberwiseClone();
 
             while (aux.padre != null)
             {
                 nodosS.Add(aux.imprimirNodo());
+                aux = aux.padre;
             }
 
             nodosS.Add(aux.imprimirNodo());
@@ -137,6 +138,8 @@ namespace BusquedasNoInformadas
             {
                 Console.WriteLine(item);
             }
+
+            return nodosS.Count();
         }
     }
 }
