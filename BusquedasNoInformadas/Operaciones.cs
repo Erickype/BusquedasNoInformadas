@@ -12,54 +12,107 @@ namespace BusquedasNoInformadas
         {
         }
 
-        public void sumar1M(Isla isla)
+        public Isla? sumar1M(Isla? isla)
         {
-            if (isla.barca == null)
-                return;
+            if (isla == null)
+                return isla;
 
-            if (isla.barca.misioneros + 1 < 2 && isla.barca.canibales <= 1 && isla.misioneros >= 1)
+            if (isla.barca == null)
+                return isla;
+
+            if ((isla.barca.canibales + isla.barca.misioneros + 1) <= 2 && isla.misioneros >= 1)
             {
                 isla.barca.misioneros++;
                 isla.misioneros--;
             }
-        }
-        public void sumar2M(Isla isla)
-        {
-            if (isla.barca == null)
-                return;
+            else
+            {
+                isla = null;
+            }
 
-            if (isla.barca.misioneros == 0 && isla.barca.canibales == 0 && isla.misioneros >= 2)
+            return isla;
+        }
+        public Isla? sumar2M(Isla? isla)
+        {
+            if (isla == null)
+                return isla;
+
+            if (isla.barca == null)
+                return isla;
+
+            if ((isla.barca.canibales + isla.barca.misioneros + 2) <= 2 && isla.misioneros >= 2)
             {
                 isla.barca.misioneros += 2;
                 isla.misioneros -= 2;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void sumar1C(Isla isla)
+        public Isla? sumar1C(Isla? isla)
         {
-            if (isla.barca == null)
-                return;
+            if (isla == null)
+                return isla;
 
-            if (isla.barca.canibales + 1 < 2 && isla.barca.misioneros <= 1 && isla.canibales >= 1)
+            if (isla.barca == null)
+                return isla;
+
+            if ((isla.barca.canibales + isla.barca.misioneros + 1) <= 2  && isla.canibales >= 1)
             {
                 isla.barca.canibales++;
                 isla.canibales--;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void sumar2C(Isla isla)
+        public Isla? sumar2C(Isla? isla)
         {
-            if (isla.barca == null)
-                return;
+            if (isla == null)
+                return isla;
 
-            if (isla.barca.canibales == 0 && isla.barca.misioneros == 0 && isla.canibales >= 2)
+            if (isla.barca == null)
+                return isla;
+
+            if ((isla.barca.canibales + isla.barca.misioneros + 2) <= 2 && isla.canibales >= 2)
             {
                 isla.barca.canibales += 2;
                 isla.canibales -= 2;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void sumar1M1C(Isla isla)
+
+        internal Isla? noSumar(Isla? isla)
         {
+            if (isla == null)
+                return isla;
+
             if (isla.barca == null)
-                return;
+                return isla;
+
+            if ((isla.barca.canibales + isla.barca.misioneros) < 1)
+            {
+                isla = null;
+            }
+    
+            return isla;
+        }
+
+        public Isla? sumar1M1C(Isla? isla)
+        {
+            if (isla == null)
+                return isla;
+
+            if (isla.barca == null)
+                return isla;
 
             if (isla.barca.misioneros == 0 && isla.barca.canibales == 0 && isla.misioneros >= 1 && isla.canibales >= 1)
             {
@@ -68,55 +121,95 @@ namespace BusquedasNoInformadas
                 isla.misioneros--;
                 isla.canibales--;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void restar1M(Isla isla) 
+        public Isla? restar1M(Isla? isla) 
         {
-            if (isla.barca == null)
-                return;
+            if (isla == null)
+                return isla;
 
-            if (isla.barca.misioneros > 1)
+            if (isla.barca == null)
+                return isla;
+
+            if (isla.barca.misioneros >= 1)
             {
                 isla.barca.misioneros--;
                 isla.misioneros++;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void restar2M(Isla isla)
+        public Isla? restar2M(Isla? isla)
         {
+            if (isla == null)
+                return isla;
+
             if (isla.barca == null)
-                return;
+                return isla;
 
             if (isla.barca.misioneros == 2)
             {
                 isla.barca.misioneros -= 2;
                 isla.misioneros += 2;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void restar1C(Isla isla)
+        public Isla? restar1C(Isla? isla)
         {
-            if (isla.barca == null)
-                return;
+            if (isla == null)
+                return isla;
 
-            if (isla.barca.canibales > 1)
+            if (isla.barca == null)
+                return isla;
+
+            if (isla.barca.canibales >= 1)
             {
                 isla.barca.canibales--;
                 isla.canibales++;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void restar2C(Isla isla)
+        public Isla? restar2C(Isla? isla)
         {
+            if (isla == null)
+                return isla;
+
             if (isla.barca == null)
-                return;
+                return isla;
 
             if (isla.barca.canibales == 2)
             {
                 isla.barca.canibales -= 2;
                 isla.canibales += 2;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
-        public void restar1M1C(Isla isla)
+        public Isla? restar1M1C(Isla? isla)
         {
+            if (isla == null)
+                return isla;
+
             if (isla.barca == null)
-                return;
+                return isla;
 
             if (isla.barca.misioneros == 1 && isla.barca.canibales == 1)
             {
@@ -125,6 +218,11 @@ namespace BusquedasNoInformadas
                 isla.misioneros++;
                 isla.canibales++;
             }
+            else
+            {
+                isla = null;
+            }
+            return isla;
         }
 
     }

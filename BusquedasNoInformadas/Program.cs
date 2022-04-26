@@ -3,9 +3,10 @@
 using BusquedasNoInformadas;
 
 //Instanciacion de clase DFS
-BusquedaAnchura busquedaAnchura = new(new Isla(3, 3));
+BusquedaAnchura busquedaAnchura = new(new Isla(3, 3, true), new Isla(0, 0, false));
 
 //invocacion metodo busqueda DFS
-Arbol arbol = busquedaAnchura.busquedaAnchura();
+//Arbol arbol = busquedaAnchura.busquedaAnchura();
+Nodo nodoSolucion = busquedaAnchura.busquedaAnchura();
 
-Console.WriteLine(arbol);
+nodoSolucion.imprimirArbol();
