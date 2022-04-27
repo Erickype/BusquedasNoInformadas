@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace BusquedasNoInformadas
 {
-    internal class BusquedaProfundidad
+    internal class BusquedaProfundidad//llega al nodo hoja
     {
         public Nodo nodoRaiz { get; set; }
-        public Arbol arbol;
         Stack<Nodo> nodosFrontera = new(); //Nodos por visitar
         List<Nodo> nodosVisitados = new();
 
         public BusquedaProfundidad(Isla islaIzquierda, Isla islaDerecha)
         {      
             nodoRaiz = new(new Viaje(islaIzquierda, islaDerecha, true));
-            arbol = new Arbol(nodoRaiz);
         }
 
         public Nodo busquedaProfundidad()

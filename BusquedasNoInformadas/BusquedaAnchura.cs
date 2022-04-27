@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace BusquedasNoInformadas
 {
-    internal class BusquedaAnchura
+    internal class BusquedaAnchura//niveles 
     {
         public Nodo nodoRaiz { get; set; }
-        public Arbol arbol;
         Queue<Nodo> nodosFrontera = new(); //Nodos por visitar
         List<Nodo> nodosVisitados = new();
 
         public BusquedaAnchura(Isla islaIzquierda, Isla islaDerecha)
         {      
             nodoRaiz = new(new Viaje(islaIzquierda, islaDerecha, true));
-            arbol = new Arbol(nodoRaiz);
         }
 
         public Nodo busquedaAnchura()
@@ -56,7 +54,7 @@ namespace BusquedasNoInformadas
                         }
                         else
                         {
-                            item.esNodoEsteril = true;
+                            item.esNodoEsteril = true;//que no se cicle el arbol
                         }                        
                     }
                 }

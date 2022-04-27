@@ -9,10 +9,10 @@ BusquedaAnchura busquedaAnchura = new(new Isla(3, 3, true), new Isla(0, 0, false
 BusquedaProfundidad busquedaProfundidad = new(new Isla(3, 3, true), new Isla(0, 0, false));
 
 //invocacion metodo busqueda WFS
-Nodo nodoSolucion = busquedaAnchura.busquedaAnchura();
+//Nodo nodoSolucion = busquedaAnchura.busquedaAnchura();
 
 //invocacion metodo busqueda DFS
-//Nodo nodoSolucion = busquedaProfundidad.busquedaProfundidad();
+Nodo nodoSolucion = busquedaProfundidad.busquedaProfundidad();
 
 int pasos = nodoSolucion.imprimirArbol();
 
