@@ -10,7 +10,7 @@ namespace BusquedasNoInformadas
     {
         public byte misioneros { get; set; }
         public byte canibales { get; set; }
-        public Barca? barca { get; set; }
+        public Barca? barca { get; set; } //null == noEstaLa Barca
         public bool estaLaBarca { get; set; }
         public Operaciones operaciones { get; set; }
 

@@ -47,7 +47,6 @@ namespace BusquedasNoInformadas
                     if (posibilidadesIslas != null)
                     {
                         viajes = viajar(posibilidadesIslas, true);
-                        //seDesembarco = false;
                     }
                 }
                 else
@@ -57,7 +56,6 @@ namespace BusquedasNoInformadas
                     if (posibilidadesIslas != null)
                     {
                         viajes = desembarcar(posibilidadesIslas, true);
-                        //seDesembarco = true;
                     }
                 }
                 
@@ -106,12 +104,12 @@ namespace BusquedasNoInformadas
                 }
                 else
                 {
-                    if (islaActual)
+                    if (islaActual)//true = desembarcar izquierda
                     {
                         aux = new Viaje(item, new(islaDerecha.misioneros, islaDerecha.canibales, false), false);
                         aux.seDesembarco = true;
                     }
-                    else
+                    else//false = desembar derecha
                     {
                         aux = new Viaje(new(islaIzquierda.misioneros, islaIzquierda.canibales, false), item, true);
                         aux.seDesembarco = true;
@@ -142,7 +140,7 @@ namespace BusquedasNoInformadas
                 {
                     item.estaLaBarca = false;
 
-                    if (islaActual)
+                    if (islaActual)//true = viaje de islaIzquierda a derecha
                     {
                         aux = new Viaje(item, new(islaDerecha.misioneros, islaDerecha.canibales, true), false);
                         if(aux.islaDerecha.barca != null && item.barca != null)
@@ -152,7 +150,7 @@ namespace BusquedasNoInformadas
                             aux.islaIzquierda.barca = null;
                         }                        
                     }
-                    else
+                    else//false = viaje de islaDerecha a islaIzquierda
                     {
                         aux = new Viaje(new(islaIzquierda.misioneros, islaIzquierda.canibales, true), item, false);
 
